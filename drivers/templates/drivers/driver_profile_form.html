@@ -1,0 +1,116 @@
+<!-- drivers/templates/drivers/driver_profile_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Driver Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff9c4, #ffe57f);
+      padding: 60px 20px;
+      margin: 0;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: #fefefe;
+      transition: border 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #fbc02d;
+      outline: none;
+      box-shadow: 0 0 6px #ffeb3b60;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ffd600, #ffea00);
+      color: #333;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(255, 213, 79, 0.4);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #ffeb3b, #fff176);
+      transform: translateY(-2px);
+    }
+
+    /* Improve Django form layout */
+    .form-container p {
+      margin: 0;
+    }
+
+    .form-container input[type="checkbox"] {
+      width: auto;
+      margin-right: 6px;
+    }
+
+    /* Optional: Style error messages */
+    .errorlist {
+      color: #e53935;
+      background-color: #ffebee;
+      padding: 10px 14px;
+      border-left: 5px solid #e53935;
+      border-radius: 6px;
+      margin-top: 5px;
+      list-style: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>🚗 Edit Your Driver Profile</h1>
+
+    <form method="POST" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">💾 Save Changes</button>
+    </form>
+  </div>
+</body>
+</html>
